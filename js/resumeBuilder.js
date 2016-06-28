@@ -25,14 +25,14 @@ var work = {
       "title": "Sr. Linux System Engineer",
       "location": "SF Bay Area",
       "dates": "2013 - Present",
-      "description": "* Primed the planner plight"
+      "description": "Primed the planner plight in the fancy flower pickle jar taster contest."
     },
     {
       "employer": "Consultant ",
       "title": "Professional Services Engineer",
       "location": "SF Bay Area",
       "dates": "2011 - 2013",
-      "description": "* Saltine cracken jacking"
+      "description": "Saltine cracken jacking fancy flower pickle jar taster contest of the prancer parkers."
     }
   ]
 };
@@ -83,25 +83,26 @@ var projects = {
   ]
 };
 
-for (job in work) {
+
+for (item in work.jobs) {
   $("#workExperience").append(HTMLworkStart);
 
-  for (entry in work[job]) {
+  var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[item].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[item].title);
 
-    var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work[job][entry]["employer"])
-    var formattedWorkTitle = HTMLworkTitle.replace("%data%", work[job][entry]["title"])
-    var formattedWorkLocation = HTMLworkLocation.replace("%data%", work[job][entry]["location"])
-    var formattedWorkDates = HTMLworkDates.replace("%data%", work[job][entry]["dates"])
-    var formattedWorkDesc = HTMLworkDescription.replace("%data%", work[job][entry]["description"])
+  var formattedEmployerTitle = formattedEmployer + formattedTitle;
+  $(".work-entry:last").append(formattedEmployerTitle);
 
-    $("#workExperience").append(formattedWorkEmployer)
-    $("#workExperience").append(formattedWorkTitle)
-    $("#workExperience").append(formattedWorkLocation)
-    $("#workExperience").append(formattedWorkDates)
-    $("#workExperience").append(formattedWorkDescription)
+  var formattedWorkLocation = HTMLworkDates.replace("%data%", work.jobs[item].location);
+  $(".work-entry:last").append(formattedWorkLocation);
 
-    console.log(formattedWorkEmployer)
-  }
-// console.log(work[job][0].employer);
+  var formattedWorkDates = HTMLworkDates.replace("%data%", work.jobs[item].dates);
+  $(".work-entry:last").append(formattedWorkDates)
+
+  var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.jobs[item].description);
+  $(".work-entry:last").append(formattedWorkDescription)
+
+  // var formattedWorkLocation = HTMLworkLocation.replace("%data%", work.jobs[item].location);
+  // $("#workExperience").append(formattedWorkLocation);
 
 }

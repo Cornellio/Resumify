@@ -18,65 +18,68 @@ var bio = {
 };
 
 var work = {
-  "title": "Sr. Linux System Engineer",
-  "employer": "Virgin America",
-  "location": "SF Bay Area",
-  "dates": "2013 - Present",
-  "description": "* Primed the planner plight \
-    <br>* Shebanged the planks \
-    <br>* Ran lines"
+  "employers": [
+    {
+      "name": "Virgin America",
+      "title": "Sr. Linux System Engineer",
+      "location": "SF Bay Area",
+      "dates": "2013 - Present",
+      "description": "* Primed the planner plight"
+    },
+    {
+      "name": "Consultant ",
+      "title": "Professional Services Engineer",
+      "location": "SF Bay Area",
+      "dates": "2011 - 2013",
+      "description": "* Saltine cracken jacking"
+    }
+  ]
 };
 
 var education = {
-  "name": "CU Boulder",
-  "years": "1990-1995",
-  "credential": "BA"
+	"schools": [
+    {
+    	"name": "CU Boulder",
+      "location": "Boulder, CO",
+      "major": "Speech Sciences",
+    	"dates": 1995,
+    	"credential": "BA",
+      "url": "http://"
+    },
+  	{
+  		"name": "UC Berkeley Extention",
+      "location": "San Francisco",
+      "major": "",
+  		"dates": 2003,
+  		"credential": "Unix/Linux System Administration",
+      "url": "http://"
+  	}
+  ],
+  "onlineCourses": [
+    {
+      "title": "JavaScript Basics",
+      "school": "Udacity",
+      "dates": 2016,
+      "url": "https://www.udacity.com/course/ud804"
+    }
+  ]
 };
 
-// bio
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.city);
+var projects = {
+  "project": [
+    {
+      "title": "Sr. Linux System Engineer",
+      "dates": "2013 - Present",
+      "description": "* Primed the planner plight",
+      "projectImage": ""
+    },
+    {
+      "title": "Professional Services Engineer",
+      "dates": "2011 - 2013",
+      "description": "* Saltine cracken jacking",
+      "projectImage": ""
+    }
+  ]
+};
 
-$("#header").prepend(formattedName);
-$("#header").prepend(formattedRole);
-$("#header").append(formattedLocation);
-
-// work experience
-
-var formattedWorkEmployer =  HTMLworkEmployer.replace("%data%", work.employer );
-var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.title );
-var formattedWorkDates = HTMLworkDates.replace("%data%", work.dates );
-var formattedWorkLocation =  HTMLworkLocation.replace("%data%", work.location );
-var formattedWorkDescription = HTMLworkDescription.replace("%data%", work.description );
-
-$("#workExperience").append(HTMLworkStart);
-$("#workExperience").append(formattedWorkEmployer);
-$("#workExperience").append(formattedWorkTitle);
-$("#workExperience").append(formattedWorkDates);
-$("#workExperience").append(formattedWorkLocation);
-$("#workExperience").append(formattedWorkDescription);
-
-
-// school
-var formattedSchoolName = HTMLschoolName.replace("%data%", education.name);
-$("#education").append(HTMLschoolStart);
-$("#education").append(formattedSchoolName);
-
-
-// skills
-if (bio.skills.length > 0) {
-
-  $("#header").append(HTMLskillsStart);
-
-  var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-  $("#skills").append(formattedSkill);
-
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-  $("#skills").append(formattedSkill);
-
-  formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-  $("#skills").append(formattedSkill);
-
-  // $("#main").append(skills)
-}
+console.log(education.schools[0]["year"])

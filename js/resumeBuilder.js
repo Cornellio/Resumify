@@ -3,11 +3,12 @@ var bio = {
   "age": 45,
   "role": "DevOps Engineer",
   "bioPic": "images/pjc.jpg",
+  "welcomeMessage": "lorem ipsum dolor sit amec",
   "contacts": {
     "email": "peter.cornell@me.com",
     "github": "cornellio",
     "twitter": "@9dreamer",
-    "city": "Silicon Valley",
+    "location": "Silicon Valley",
   },
   "message": "You you be healthy, may you be happy",
   "skills": [
@@ -18,16 +19,16 @@ var bio = {
 };
 
 var work = {
-  "employers": [
+  "jobs": [
     {
-      "name": "Virgin America",
+      "employer": "Virgin America",
       "title": "Sr. Linux System Engineer",
       "location": "SF Bay Area",
       "dates": "2013 - Present",
       "description": "* Primed the planner plight"
     },
     {
-      "name": "Consultant ",
+      "employer": "Consultant ",
       "title": "Professional Services Engineer",
       "location": "SF Bay Area",
       "dates": "2011 - 2013",
@@ -71,15 +72,36 @@ var projects = {
       "title": "Sr. Linux System Engineer",
       "dates": "2013 - Present",
       "description": "* Primed the planner plight",
-      "projectImage": ""
+      "images": []
     },
     {
       "title": "Professional Services Engineer",
       "dates": "2011 - 2013",
       "description": "* Saltine cracken jacking",
-      "projectImage": ""
+      "images": []
     }
   ]
 };
 
-console.log(education.schools[0]["year"])
+for (job in work) {
+  $("#workExperience").append(HTMLworkStart);
+
+  for (entry in work[job]) {
+
+    var formattedWorkEmployer = HTMLworkEmployer.replace("%data%", work[job][entry]["employer"])
+    var formattedWorkTitle = HTMLworkTitle.replace("%data%", work[job][entry]["title"])
+    var formattedWorkLocation = HTMLworkLocation.replace("%data%", work[job][entry]["location"])
+    var formattedWorkDates = HTMLworkDates.replace("%data%", work[job][entry]["dates"])
+    var formattedWorkDesc = HTMLworkDescription.replace("%data%", work[job][entry]["description"])
+
+    $("#workExperience").append(formattedWorkEmployer)
+    $("#workExperience").append(formattedWorkTitle)
+    $("#workExperience").append(formattedWorkLocation)
+    $("#workExperience").append(formattedWorkDates)
+    $("#workExperience").append(formattedWorkDescription)
+
+    console.log(formattedWorkEmployer)
+  }
+// console.log(work[job][0].employer);
+
+}

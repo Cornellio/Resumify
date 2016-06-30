@@ -23,14 +23,14 @@ var work = {
     {
       "employer": "Virgin America",
       "title": "Sr. Linux System Engineer",
-      "location": "SF Bay Area",
+      "location": "Burlingame, CA",
       "dates": "2013 - Present",
       "description": "Primed the planner plight in the fancy flower pickle jar taster contest."
     },
     {
       "employer": "Consultant ",
       "title": "Professional Services Engineer",
-      "location": "SF Bay Area",
+      "location": "San Francisco, CA",
       "dates": "2011 - 2013",
       "description": "Saltine cracken jacking fancy flower pickle jar taster contest of the prancer parkers."
     }
@@ -69,16 +69,16 @@ var education = {
 var projects = {
   "project": [
     {
-      "title": "Sr. Linux System Engineer",
-      "dates": "2013 - Present",
+      "title": "Dashing dashboards",
+      "dates": "2015",
       "description": "* Primed the planner plight",
-      "images": []
+      "image": ""
     },
     {
-      "title": "Professional Services Engineer",
-      "dates": "2011 - 2013",
+      "title": "Puppet Riak Module",
+      "dates": "2015",
       "description": "* Saltine cracken jacking",
-      "images": []
+      "image": ""
     }
   ]
 };
@@ -119,5 +119,63 @@ function displayWork() {
   }
 }
 
+function showClicks() {
+
+  $(document).click(function(loc) {
+      var x = loc.pageX;
+      var y = loc.pageY;
+      logClicks(x,y);
+  });
+}
+
+function locationizer(work) {
+  // operate on work.jobs.location
+  var locations = []
+  for (var item in work.jobs) {
+    locations.push(work.jobs[item].location);
+  }
+  return locations;
+}
+
+function inName(name) {
+  // convert last name to caps
+  name = name.split(" ");
+  var fname = name[0];
+  var lname = name[1].toUpperCase();
+  name = fname + " " + lname;
+
+  return name;
+}
+
+projects.display = function() {
+  // .append() all project info to projects section
+  // start each project with HTMLprojectStart
+
+  for (item in projects.project) {
+      $("#projects").append(HTMLprojectStart);
+
+      var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[item].title);
+      $(".project-entry:last").append(formattedTitle);
+
+      var formattedDates = HTMLprojectDates.replace("%data%", projects.project[item].dates);
+      $(".project-entry:last").append(formattedDates);
+
+      var formattedDescription = HTMLprojectDescription.replace("%data%", projects.project[item].description);
+      $(".project-entry:last").append(formattedDescription);
+
+      if (projects.project[item].images.length > 0) {
+
+        for (image in projects.project[item].images) {
+          var formattedImg = HTMLprojectImage.replace("%data%", projects.project[item].images[image]);
+          $(".project-entry:last").append(formattedImg);
+        }
+      }
+  }
+}
+
 displayHeader()
 displayWork()
+showClicks()
+projects.display()
+
+console.log(inName("Peter cornell"));

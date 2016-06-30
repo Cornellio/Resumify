@@ -2,7 +2,7 @@ var bio = {
   "name": "J Cornellio",
   "age": 45,
   "role": "DevOps Engineer",
-  "bioPic": "images/pjc.jpg",
+  "biopic": "img/portrait.jpg",
   "welcomeMessage": "lorem ipsum dolor sit amec",
   "contacts": {
     "email": "peter.cornell@me.com",
@@ -85,15 +85,26 @@ var projects = {
 
 header.display = function() {
 
+  // Bio Info
   var formattedName = HTMLheaderName.replace("%data%", bio.name);
   var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
   var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-  // var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.city);
-
+  var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+  var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+  var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+  var formattedBiopic = HTMLbioPic.replace("%data%", bio.biopic);
   $("#header").prepend(formattedRole);
   $("#header").prepend(formattedName);
   $("#header").append(formattedGithub);
-  // $("#header").append(formattedLocation);
+  $("#header").append(formattedEmail);
+  $("#header").append(formattedTwitter);
+  $("#header").append(formattedLocation);
+  $("#header").append(formattedBiopic);
+
+// Skills section
+var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+$("#header").append(HTMLskillsStart);
+$("#header").append(formattedSkills);
 
 }
 

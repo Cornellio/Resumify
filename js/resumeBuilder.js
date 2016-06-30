@@ -72,18 +72,18 @@ var projects = {
       "title": "Dashing dashboards",
       "dates": "2015",
       "description": "* Primed the planner plight",
-      "image": ""
+      "images": ["https://images.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fposition-relative%2Fsocial-2%2F128%2Fgithub-icon.png&f=1", "https://images.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fposition-relative%2Fsocial-2%2F128%2Fgithub-icon.png&f=1"]
     },
     {
       "title": "Puppet Riak Module",
       "dates": "2015",
       "description": "* Saltine cracken jacking",
-      "image": ""
+      "images": ["https://images.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fposition-relative%2Fsocial-2%2F128%2Fgithub-icon.png&f=1", "https://images.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fposition-relative%2Fsocial-2%2F128%2Fgithub-icon.png&f=1"]
     }
   ]
 };
 
-function displayHeader() {
+header.display = function() {
 
   var formattedName = HTMLheaderName.replace("%data%", bio.name);
   var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
@@ -97,7 +97,7 @@ function displayHeader() {
 
 }
 
-function displayWork() {
+work.display = function() {
   for (item in work.jobs) {
     $("#workExperience").append(HTMLworkStart);
 
@@ -173,8 +173,8 @@ projects.display = function() {
   }
 }
 
-displayHeader()
-displayWork()
+header.display()
+work.display()
 showClicks()
 projects.display()
 

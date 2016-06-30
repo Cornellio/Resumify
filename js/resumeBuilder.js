@@ -177,5 +177,3 @@ header.display()
 work.display()
 showClicks()
 projects.display()
-
-console.log(inName("Peter cornell"));

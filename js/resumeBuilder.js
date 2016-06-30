@@ -101,10 +101,10 @@ header.display = function() {
   $("#header").append(formattedLocation);
   $("#header").append(formattedBiopic);
 
-// Skills section
-var formattedSkills = HTMLskills.replace("%data%", bio.skills);
-$("#header").append(HTMLskillsStart);
-$("#header").append(formattedSkills);
+  // Skills section
+  var formattedSkills = HTMLskills.replace("%data%", bio.skills);
+  $("#header").append(HTMLskillsStart);
+  $("#header").append(formattedSkills);
 
 }
 

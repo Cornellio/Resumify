@@ -35,7 +35,20 @@ var weirdObject = {
     "8property": "Mars has two tiny moons: Phobos and Deimos"
 };
 
-console.log(weirdObject['8property']);
+
+for (var key in weirdObject) {
+  console.log(key, weirdObject[key])
+}
+
+for (var key in weirdObject) {
+  if (weirdObject.hasOwnProperty(key)) {
+    console.log(key, weirdObject[key]);
+  }
+}
+
+console.log(me)
+
+// console.log(weirdObject['8property']);
 
 // property
 var dotNotation0 = true;

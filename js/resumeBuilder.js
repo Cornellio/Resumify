@@ -1,16 +1,16 @@
 var bio = {
-  "name": "J Cornellio",
+  "name": "Peter Cornell",
   "age": 45,
   "role": "DevOps Engineer",
   "biopic": "img/portrait.jpg",
   "welcomeMessage": "lorem ipsum dolor sit amec",
   "contacts": {
-    "email": "peter.cornell@me.com",
+    "email": "",
     "github": "cornellio",
     "twitter": "@9dreamer",
     "location": "Silicon Valley",
   },
-  "message": "You you be healthy, may you be happy",
+  "message": "May you be healthy, may you be happy",
   "skills": [
     "vipassana",
     "mystic scuba",
